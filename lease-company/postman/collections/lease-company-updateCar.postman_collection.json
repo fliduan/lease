@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "480a503b-24e8-4b5e-b667-b8bb09a28d49",
+		"name": "lease-company-updateCar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28322154",
+		"_collection_link": "https://team-firefly.postman.co/workspace/lease-company~20b33a4e-e467-4ad0-83c9-d82e19fa7f93/collection/28322154-480a503b-24e8-4b5e-b667-b8bb09a28d49?action=share&source=collection_link&creator=28322154"
+	},
+	"item": [
+		{
+			"name": "updateCar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"make\": \"Lexus\",\r\n    \"model\": \"IS220d\",\r\n    \"version\": \"Sport\",\r\n    \"numberOfDoors\": 4,\r\n    \"grossPrice\": 44300,\r\n    \"nettPrice\": 28500,\r\n    \"emission\": 177\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCar_badRequest_missingNettPrice",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"make\": \"Lexus\",\r\n  \"model\": \"IS220d\",\r\n  \"version\": \"Sport\",\r\n  \"numberOfDoors\": 4,\r\n  \"grossPrice\": 44285,\r\n  \"emission\": 177\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{api_key_value}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "{{api_key_name}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "6a0093d2-24e1-4a6e-b7dc-3796d8e9313a",
+		"name": "lease-company-getInterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28322154",
+		"_collection_link": "https://team-firefly.postman.co/workspace/lease-company~20b33a4e-e467-4ad0-83c9-d82e19fa7f93/collection/28322154-6a0093d2-24e1-4a6e-b7dc-3796d8e9313a?action=share&source=collection_link&creator=28322154"
+	},
+	"item": [
+		{
+			"name": "getInterestRate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/interests?startDate=2025-05-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"interests"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-05-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{api_key_value}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "{{api_key_name}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

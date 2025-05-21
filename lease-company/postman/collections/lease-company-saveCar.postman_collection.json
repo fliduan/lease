@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "1d55f37b-408a-40c3-afb4-d7ce6e9a0ece",
+		"name": "lease-company-saveCar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28322154",
+		"_collection_link": "https://team-firefly.postman.co/workspace/lease-company~20b33a4e-e467-4ad0-83c9-d82e19fa7f93/collection/28322154-1d55f37b-408a-40c3-afb4-d7ce6e9a0ece?action=share&source=collection_link&creator=28322154"
+	},
+	"item": [
+		{
+			"name": "saveCar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"make\": \"Nissan\",\r\n  \"model\": \"Qashqai\",\r\n  \"version\": \"1.7 dCi 150 NEW TEKNA+ Intelligent 4x4\",\r\n  \"numberOfDoors\": 5,\r\n  \"grossPrice\": 48540,\r\n  \"nettPrice\": 28229,\r\n  \"emission\": 150\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveCar_badRequest_missingNettPrice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"make\": \"Lexus\",\r\n  \"model\": \"IS220d\",\r\n  \"version\": \"Sport\",\r\n  \"numberOfDoors\": 4,\r\n  \"grossPrice\": 44285,\r\n  \"emission\": 177\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{api_key_value}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "{{api_key_name}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
