@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "b99809cb-ad8a-4b47-84fa-f8f281cb88d6",
+		"name": "lease-broker-saveCustomer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28322154",
+		"_collection_link": "https://team-firefly.postman.co/workspace/lease-boker~1bba4f7f-8c8f-4ac3-bf38-28800cfd265b/collection/28322154-b99809cb-ad8a-4b47-84fa-f8f281cb88d6?action=share&source=collection_link&creator=28322154"
+	},
+	"item": [
+		{
+			"name": "saveCustomer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "CID",
+						"value": "CID001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerNumber\": \"C001\",\r\n  \"email\": \"C1@test.com\",\r\n  \"firstName\": \"Ben\",\r\n  \"lastName\": \"Smith\",\r\n  \"street\": \"Dorpstraat\",\r\n  \"houseNumber\": \"8\",\r\n  \"zipCode\": \"1188AB\",\r\n  \"place\": \"Amstelveen\",\r\n  \"phoneNumber\": \"020-12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveCustomer 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "CID",
+						"value": "CID001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerNumber\": \"C002\",\r\n  \"email\": \"C2@test.com\",\r\n  \"firstName\": \"Susan\",\r\n  \"lastName\": \"Smith\",\r\n  \"street\": \"Marskrammer\",\r\n  \"houseNumber\": \"1\",\r\n  \"zipCode\": \"1186AB\",\r\n  \"place\": \"Amstelveen\",\r\n  \"phoneNumber\": \"020-98765432\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveCustomer_badRequest_invalidEmail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "CID",
+						"value": "CID001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerNumber\": \"C003\",\r\n  \"email\": \"C3test.com\",\r\n  \"firstName\": \"Marije\",\r\n  \"lastName\": \"Everts\",\r\n  \"street\": \"Keizersgracht\",\r\n  \"houseNumber\": \"15\",\r\n  \"zipCode\": \"1088AB\",\r\n  \"place\": \"Amsterdam\",\r\n  \"phoneNumber\": \"020-12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveCustomer_badRequest_invalidPhoneNumber",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "CID",
+						"value": "CID001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerNumber\": \"C003\",\r\n  \"email\": \"C3@test.com\",\r\n  \"firstName\": \"Marije\",\r\n  \"lastName\": \"Everts\",\r\n  \"street\": \"Keizersgracht\",\r\n  \"houseNumber\": \"15\",\r\n  \"zipCode\": \"1088AB\",\r\n  \"place\": \"Amsterdam\",\r\n  \"phoneNumber\": \"abc-12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "e9b4cb65-b381-4c67-80e2-8303c0d20427",
+		"name": "lease-broker-quote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28322154",
+		"_collection_link": "https://team-firefly.postman.co/workspace/lease-boker~1bba4f7f-8c8f-4ac3-bf38-28800cfd265b/collection/28322154-e9b4cb65-b381-4c67-80e2-8303c0d20427?action=share&source=collection_link&creator=28322154"
+	},
+	"item": [
+		{
+			"name": "requestQuote",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "CID",
+						"value": "CID001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"make\": \"Lexus\",\r\n    \"model\": \"CT\",\r\n    \"version\": \"200h Hybrid Business Line\",    \r\n    \"mileage\": \"45000\",\r\n    \"duration\": \"60\",\r\n    \"startDate\": \"2025-05-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"quotes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
