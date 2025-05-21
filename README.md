@@ -26,8 +26,8 @@ This API allows leasing company to manage car information.
 1. Clone this repository:
 
    ```bash
-   git clone <repository-url>
-   cd lease-broker
+   git clone https://github.com/fliduan/lease
+   cd lease-company
 
 2. Build the project:
 
@@ -60,7 +60,7 @@ This API allows brokers to manage customer information and to create a quote for
 1. Clone this repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/fliduan/lease
    cd lease-broker
 
 2. Build the project:
