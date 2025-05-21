@@ -1,0 +1,552 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/v1/cars": {
+      "get": {
+        "tags": [
+          "car-controller"
+        ],
+        "summary": "Get cars information based on make, (optional) model, (optional) version.",
+        "description": "Get cars information based on make, (optional) model, (optional) version.",
+        "operationId": "getCars",
+        "parameters": [
+          {
+            "name": "CID",
+            "in": "header",
+            "description": "Correlation ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "make",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "model",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the request is processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDto"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "missing token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "not authorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "car-controller"
+        ],
+        "summary": "Update car information.",
+        "description": "Update car information.",
+        "operationId": "updateCar",
+        "parameters": [
+          {
+            "name": "CID",
+            "in": "header",
+            "description": "Correlation ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the request is processed successfully"
+          },
+          "401": {
+            "description": "missing token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "not authorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "car-controller"
+        ],
+        "summary": "Save car information.",
+        "description": "Save car information.",
+        "operationId": "saveCar",
+        "parameters": [
+          {
+            "name": "CID",
+            "in": "header",
+            "description": "Correlation ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the request is processed successfully"
+          },
+          "401": {
+            "description": "missing token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "not authorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "car-controller"
+        ],
+        "summary": "Delete car information based on make, model, version.",
+        "description": "Delete cars information based on make, model, version.",
+        "operationId": "deleteCar",
+        "parameters": [
+          {
+            "name": "CID",
+            "in": "header",
+            "description": "Correlation ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the request is processed successfully"
+          },
+          "401": {
+            "description": "missing token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "not authorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ]
+      }
+    },
+    "/v1/interests": {
+      "get": {
+        "tags": [
+          "interest-controller"
+        ],
+        "summary": "Get interest rate based on start date.",
+        "description": "Get interest rate based on start date.",
+        "operationId": "getInterestRate",
+        "parameters": [
+          {
+            "name": "CID",
+            "in": "header",
+            "description": "Correlation ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the request is processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InterestResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "missing token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unexpected exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "not authorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CarDto": {
+        "required": [
+          "make",
+          "model",
+          "nettPrice",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "numberOfDoors": {
+            "type": "integer",
+            "description": "Number of doors of the car.",
+            "format": "int32",
+            "example": 4
+          },
+          "grossPrice": {
+            "type": "number"
+          },
+          "nettPrice": {
+            "type": "number"
+          },
+          "emission": {
+            "type": "integer",
+            "description": "C02 emission of the car.",
+            "format": "int32",
+            "example": 143
+          }
+        },
+        "description": "Car information for the lease."
+      },
+      "ApiErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "HTTP error code",
+            "format": "int32",
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "description": "HTTP error name",
+            "readOnly": true
+          },
+          "detail": {
+            "type": "string",
+            "description": "Error description",
+            "readOnly": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "description": "Error list",
+              "readOnly": true,
+              "items": {
+                "type": "string",
+                "description": "Error list",
+                "readOnly": true
+              }
+            },
+            "description": "Error list",
+            "readOnly": true
+          }
+        },
+        "description": "Generic Error Message"
+      },
+      "InterestResponseDto": {
+        "type": "object",
+        "properties": {
+          "rate": {
+            "type": "number"
+          }
+        }
+      },
+      "CarRequestDto": {
+        "required": [
+          "make"
+        ],
+        "type": "object",
+        "properties": {
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "description": "Request to get cars information."
+      }
+    },
+    "securitySchemes": {
+      "X-Api-Key": {
+        "type": "apiKey",
+        "name": "X-Api-Key",
+        "in": "header"
+      }
+    }
+  }
+}
