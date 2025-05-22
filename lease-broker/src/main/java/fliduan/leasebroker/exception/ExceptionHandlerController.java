@@ -28,7 +28,7 @@ import java.util.List;
 public class ExceptionHandlerController {
     protected static final String ALGEMENE_EXCEPTIE_MSG = "Global exception has occurred";
     protected static final String EXCEPTIE_OPGETREDEN_MSG = "An exception has occurred";
-    protected static final String DATA_NOT_FOUND_MSG = "Fata not found exception has occurred";
+    protected static final String DATA_NOT_FOUND_MSG = "Data not found exception has occurred";
     protected static final String RESOURCE_NOT_FOUND_MSG = "Resource not found exception has occurred";
     protected static final String DATA_INTEGRITY_MSG = "Data integrity exception has occurred";
     protected static final String METHOD_NOT_ALLOWED_MSG = "Method not allowed exception has occurred";
