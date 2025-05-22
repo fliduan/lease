@@ -61,7 +61,7 @@ public class LeaseCompanyAdapter {
                                 throw new LeaseBrokerException(TIMEOUT_RETRY_EXCEEDED, HttpStatus.SERVICE_UNAVAILABLE);
                             }))
                     .block();
-            if (resp != null && resp.getBody() != null) {
+            if (resp != null && resp.getBody() != null && !resp.getBody().isEmpty()) {
                 carVO = carMapper.lcCarDtoToCarVO(resp.getBody().getFirst());
             }
         }catch (WebClientResponseException e) {
@@ -113,5 +113,4 @@ public class LeaseCompanyAdapter {
             throw new LeaseBrokerException(String.format(GENERAL_ERROR, soort) + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
