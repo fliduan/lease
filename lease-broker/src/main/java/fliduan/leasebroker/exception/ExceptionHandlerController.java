@@ -26,14 +26,14 @@ import java.util.List;
 @Log4j2
 @RestControllerAdvice
 public class ExceptionHandlerController {
-    protected static final String ALGEMENE_EXCEPTIE_MSG = "An global exception has occured";
-    protected static final String EXCEPTIE_OPGETREDEN_MSG = "An exception has occuredn";
-    protected static final String DATA_NOT_FOUND_MSG = "An data not found exception has occured";
-    protected static final String RESOURCE_NOT_FOUND_MSG = "An resource not found exception has occured";
-    protected static final String DATA_INTEGRITY_MSG = "An data integrity exception has occured";
-    protected static final String METHOD_NOT_ALLOWED_MSG = "An method not allowed exception has occured";
-    protected static final String UNSUPPORTED_MEDIA_TYPE_MSG = "An unsupported media type exception has occured";
-    protected static final String VALIDATIE_ERROR_MSG = "An validation exception has occured";
+    protected static final String ALGEMENE_EXCEPTIE_MSG = "Global exception has occurred";
+    protected static final String EXCEPTIE_OPGETREDEN_MSG = "An exception has occurred";
+    protected static final String DATA_NOT_FOUND_MSG = "Fata not found exception has occurred";
+    protected static final String RESOURCE_NOT_FOUND_MSG = "Resource not found exception has occurred";
+    protected static final String DATA_INTEGRITY_MSG = "Data integrity exception has occurred";
+    protected static final String METHOD_NOT_ALLOWED_MSG = "Method not allowed exception has occurred";
+    protected static final String UNSUPPORTED_MEDIA_TYPE_MSG = "Unsupported media type exception has occurred";
+    protected static final String VALIDATIE_ERROR_MSG = "A validation exception has occurred";
 
     /**
      * Handler for MethodArgumentTypeMismatchException if the request object is of wrong type.
