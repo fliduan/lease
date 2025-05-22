@@ -3,6 +3,7 @@ package fliduan.leasebroker.service;
 import fliduan.leasebroker.adapter.LeaseCompanyAdapter;
 import fliduan.leasebroker.dto.QuoteRequestDto;
 import fliduan.leasebroker.dto.QuoteResponseDto;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,16 @@ public class QuoteService {
      * @return {@link QuoteResponseDto} quote with lease rate
      */
     public QuoteResponseDto requestQuote(@NotNull QuoteRequestDto quoteRequestDto){
-        //var percentInterestRate = new BigDecimal("4.5");
         var carVO = leaseCompanyAdapter.retrieveCarVO(quoteRequestDto);
-        var nettPrice = (carVO != null ? carVO.getNettPrice() : BigDecimal.ZERO);
+        if (carVO == null) {
+            throw new EntityNotFoundException("Car is not found.");
+        }
+        var nettPrice = carVO.getNettPrice();
         var interestVO = leaseCompanyAdapter.retrieveInterestVO(quoteRequestDto.getStartDate());
-        var percentInterestRate = (interestVO != null ? interestVO.rate() : BigDecimal.ZERO);
+        if (interestVO == null){
+            throw new EntityNotFoundException("Interest rate is not found.");
+        }
+        var percentInterestRate = interestVO.rate();
         var leaseRate = calculateLeaseRate(quoteRequestDto.getMileage()
                 , quoteRequestDto.getDuration()
                 , percentInterestRate
